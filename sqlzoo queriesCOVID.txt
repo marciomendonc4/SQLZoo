@@ -1,0 +1,93 @@
+1. Modify the query to show data from Spain.
+
+SELECT name, 
+  DAY(whn),
+  confirmed, 
+  deaths, 
+  recovered
+FROM covid
+WHERE name = 'Spain'
+AND MONTH(whn) = 3 AND YEAR(whn) = 2020
+ORDER BY whn
+
+2.Modify the query to show confirmed for the day before.
+
+SELECT name, 
+  DAY(whn), 
+  confirmed,
+  LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn) prev_day
+ FROM covid
+WHERE name = 'Italy'
+AND MONTH(whn) = 3 AND YEAR(whn) = 2020
+ORDER BY whn
+
+3.Show the number of new cases for each day, for Italy, for March.
+
+SELECT name, 
+  DAY(whn), 
+  (confirmed - LAG(confirmed, 1) 
+               OVER (PARTITION BY name ORDER BY whn)) new
+FROM covid
+WHERE name = 'Italy'
+AND MONTH(whn) = 3 AND YEAR(whn) = 2020
+ORDER BY whn
+
+4.Show the number of new cases in Italy for each week in 2020 - show Monday only.
+
+SELECT name, 
+  CONCAT(MONTH(whn),'/',DAY(whn),'/',YEAR(whn)) AS date,
+  (confirmed - LAG(confirmed, 1) 
+               OVER (PARTITION BY name ORDER BY whn)) AS week_count
+FROM covid
+WHERE name = 'Italy' AND DATENAME(WEEKDAY, whn) = 'Monday'
+ORDER BY whn;
+
+6. Include the ranking for the number of deaths in the table.
+
+SELECT name,
+ confirmed,
+ RANK() OVER (ORDER BY confirmed DESC) rc,
+ deaths,
+ RANK() OVER(ORDER BY deaths DESC) rc
+FROM covid
+WHERE whn = '2020-04-20'
+ORDER BY confirmed DESC
+
+7.Show the infect rate ranking for each country. Only include countries with a population of at least 10 million.
+
+SELECT w.name,
+ ROUND(100000 * c.confirmed/w.population, 0) AS infect_pop,
+ RANK() OVER(ORDER BY infect_pop DESC)
+FROM covid c
+JOIN world w USING(name)
+WHERE c.whn LIKE '2020-04-20%' 
+AND w.population > 10000000
+ORDER BY w.population DESC;
+
+8. For each country that has had at last 1000 new cases in a single day, show the date of the peak number of new cases.
+
+WITH daily_cases AS(
+  SELECT name,
+  confirmed,
+  whn,
+  deaths,
+  recovered,
+  (confirmed - LAG(confirmed)
+               OVER(PARTITION BY name ORDER BY whn)) AS daily_count
+  FROM covid
+),
+peak_number AS(
+  SELECT name,
+  MAX(daily_count) AS peak_cases
+  FROM daily_cases
+  GROUP BY name
+  HAVING MAX(daily_count) >= 1000
+)
+SELECT peak_number.name,
+ CONCAT(MONTH(whn),'/',DAY(whn),'/',YEAR(whn)) date_,
+ peak_cases
+FROM peak_number
+LEFT JOIN daily_cases
+ON peak_number.name = daily_cases.name
+AND peak_number.peak_cases = daily_cases.daily_count
+ORDER BY peak_cases DESC;

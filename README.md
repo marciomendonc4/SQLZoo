@@ -1,7 +1,7 @@
 [PT/BR](#pt-br)
 
 # SQLZoo
- ### My SQL Code from the [SQLZOO](https://sqlzoo.net/wiki/SQL_Tutorial">SQLZOO) exercises.
+ ### My SQL Code from the [SQLZOO](https://sqlzoo.net/wiki/SQL_Tutorial) exercises.
  
  ## Table of Contents
  
@@ -23,7 +23,7 @@
 #### PT BR
 
 # SQLZoo
- ### Meu código SQL dos exercícios do site [SQLZOO](https://sqlzoo.net/wiki/SQL_Tutorial">SQLZOO).
+ ### Meu código SQL dos exercícios do site [SQLZOO](https://sqlzoo.net/wiki/SQL_Tutorial).
  
  ## Índice
  

@@ -7,7 +7,7 @@
  
 - [SELECT Basics](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSELECTbasics.txt)
 - [SELECT Names](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesNAMES.txt)
-- [SELECT from World]
+- [SELECT from World](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesWORLD.txt)
 - [SELECT from Nobel](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesNobel.txt)
 - [SELECT within SELECT](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSELECTwSELECT.txt)
 - [SUM and COUNT](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSUM.txt)
@@ -29,7 +29,7 @@
  
 - [SELECT Basics](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSELECTbasics.txt)
 - [SELECT Names](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesNAMES.txt)
-- [SELECT from World]
+- [SELECT from World](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesWORLD.txt)
 - [SELECT from Nobel](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesNobel.txt)
 - [SELECT within SELECT](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSELECTwSELECT.txt)
 - [SUM and COUNT](https://github.com/marciomendonc4/SQLZoo/blob/main/all_exercises/sqlzoo%20queriesSUM.txt)

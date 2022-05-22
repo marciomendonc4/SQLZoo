@@ -60,12 +60,6 @@ SELECT name,
 FROM world
 WHERE continent = 'South America'
 
-10. SELECT name,
-    ROUND(population/1000000, 2) AS 'population in million',
-    ROUND(gdp/1000000000, 2) AS 'GDP in billions'
-FROM world
-WHERE continent = 'South America'
-
 10. Show the name and per-capita GDP for those countries with a GDP of at least one trillion. Round this value to the nearest 1000.
 
 SELECT name,
